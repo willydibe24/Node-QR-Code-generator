@@ -1,9 +1,23 @@
 
-###     QR Code Generator App     ###
-
-
+#   QR Code Generator App     #
 
 This is a QR code generator app made with Node.js and Vite.js. It can generate QR codes in two ways - By typing some text/url's or by uploading a file. It uses an API which in both cases reads an URL and converts it to a QR code.
+
+
+
+
+## Setting up the app ##
+
+### To use the app, follow these steps: ###
+
+#### - Clone the repository to your local machine: ####
+  ##### git clone https://github.com/willydibe24/QR-it---Node-QR-code-generator.git #####
+  
+#### - Install all the dependencies by running npm install. ####
+#### - Set up a Firebase account and create a new Firebase Cloud Storage directory. ####
+#### - Change the parameters in "firebase-config.js" with your parameters. ####
+#### - Run the app with npm run dev. ####
+
 
 
 
@@ -13,22 +27,10 @@ To generate a QR code via API, the app uses the API available at this URL: https
 
 
 
+
 ### Generating QR codes from uploaded files ###
 
 To generate a QR code from an uploaded file, the app uses the same API, which has been mentioned before. When a file is uploaded to the app, it is stored in a Firebase Cloud Storage directory. The app then sends a request to the API with the URL of the uploaded file to generate the QR code (see firebase-storage.js and firebase-get-url.js).
-
-
-
-
-### Setting up the app ###
-
-To use the app, follow these steps:
-
-- Clone the repository to your local machine. 
-- Install all the dependencies by running npm install.
-- Set up a Firebase account and create a new Firebase Cloud Storage directory.
-- Change the parameters in "firebase-config.js" with your parameters.
-- Run the app with npm run dev.
 
 
 
@@ -47,8 +49,7 @@ If you are going to generate QR codes by uploading files, you can get the URL of
 
 
 
+
 ### Conclusion ###
 
 This is a simple but powerful QR code generator app made with Node.js and Vite.js. It allows you to generate QR in a very easy way. Give it a try and see how it can help you in your projects!
-
-
