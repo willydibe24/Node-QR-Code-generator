@@ -11,7 +11,7 @@ This is a QR code generator app made with Node.js and Vite.js. It can generate Q
 ### To use the app, follow these steps: ###
 
 #### - Clone the repository to your local machine: ####
-  ##### git clone https://github.com/willydibe24/QR-it---Node-QR-code-generator.git #####
+##### git clone https://github.com/willydibe24/QR-it---Node-QR-code-generator.git #####
   
 #### - Install all the dependencies by running npm install. ####
 #### - Set up a Firebase account and create a new Firebase Cloud Storage directory. ####
