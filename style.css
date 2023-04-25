@@ -1,0 +1,460 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&family=Varela+Round&display=swap');
+
+:root {
+    --grey: rgb(224, 224, 224);
+    --darkerGrey: rgb(210, 210, 210);
+    --lighterGreen: rgb(3, 123, 145);
+    --green: rgb(1, 104, 122);
+    --darkerGreen: rgb(2, 75, 88);
+}
+
+* {
+    font-family: poppins, sans-serif;
+}
+
+body {
+    margin: 0 auto;
+    box-sizing: border-box;
+    background: var(--green);
+}
+
+h1 {
+    text-align: left;
+    margin: 0;
+    font-size: 1.4rem;
+}
+
+button {
+    color: white;
+    border: none;
+    border-radius: 20px;
+    background: var(--green);
+    transition: .2s;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+button:hover {
+    background: var(--darkerGreen);
+}
+
+.container {
+    position: absolute; 
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 90vw;
+    max-width: 400px;
+    min-height: 420px;
+    padding: 2rem 0;
+    background: rgb(255, 255, 255);
+    border-radius: 1.5rem;
+    border: solid 2px var(--darkerGreen);
+    box-sizing: border-box;
+}
+
+.content {
+    width: 80%;
+    flex-direction: column;
+}
+
+.text-input, .file-input {
+    display: flex;
+    flex-direction: column;
+    gap: .9rem;
+}
+
+#text {
+    border: none;
+    outline: none;
+    border-radius: 10px;
+    background: var(--grey);
+    padding: 0 10px;
+    box-sizing: border-box;
+    width: 100%;
+    height: 30px;
+    text-align: center;
+    transition: .2s;
+}
+
+#text:focus {
+    background: var(--darkerGrey);
+}
+
+#file::-webkit-file-upload-button {
+    border: none;
+    border-radius: 20px;
+    padding: 2px 20px;
+    background: var(--grey);
+    cursor: pointer;
+    transition: .2s;
+    color: black;
+    font-size: .8rem;
+}
+
+#file::-webkit-file-upload-button:hover {
+    background: var(--grey);
+}
+
+
+#generate {
+    width: 100%;
+    height: 40px;
+    margin: 20px 0;
+}
+
+.user-icon-container {
+    position: absolute;
+    top: -1rem;
+    right: -1rem;
+}
+
+#user-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: .3s;
+}
+
+#user-icon {
+    width: 3rem;
+    height: 3rem;
+    border: solid 2px var(--darkerGreen);
+    color: var(--darkerGreen);
+    background: white;
+}
+
+#user-icon:hover {
+    scale: 105%;
+}
+
+.control-panel, .authentication {
+    opacity: 0;
+    visibility: hidden;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    background: rgba(44, 44, 44, 0.644);
+}
+
+.control-panel-container, .authentication-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.control-panel-container, .authentication-container {
+    width: 90vw;
+    min-height: 420px;
+    max-width: 400px;
+    border-radius: 20px;
+    background: white;
+}
+
+.control-panel-container {
+    display: flex;
+    flex-direction: column;
+    gap: .9rem;
+}
+
+.control-panel-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 20px 20px 0;
+}
+
+.control-panel-header h1 {
+    width: fit-content;
+    margin: 0;
+    text-align: left;
+    font-size: 1.5rem;
+}
+
+#user-cross, #auth-cross {
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.user-greeting {
+    text-align: center;
+    color: green;
+}
+
+.user-greeting p {
+    margin: 0;
+}
+
+.control-panel-content {
+    height: 220px;
+    margin: 0 20px;
+    padding: 30px 0;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    overflow-y: scroll;
+    background: rgb(230, 230, 230);
+}
+
+.control-panel-content::-webkit-scrollbar {
+    width: 5px;
+}
+
+/* Track */
+.control-panel-content::-webkit-scrollbar-track {
+    background: rgb(88, 162, 175);
+    border-radius: 20px;
+}
+
+/* Handle */
+.control-panel-content::-webkit-scrollbar-thumb {
+    border-radius: 20px;
+    background: var(--green);
+}
+
+/* Handle on hover */
+.control-panel-content::-webkit-scrollbar-thumb:hover {
+    background: var(--darkerGreen);
+}
+
+.control-panel-content span {
+    width: 45%;
+    font-size: .7rem;
+}
+
+.control-panel-trigger-button, .control-panel-alert-button, .control-panel-resend-verify {
+    width: 45%;
+    min-height: 30px;
+    font-size: .75rem;
+}
+
+.control-panel-row {
+    position: relative;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.control-panel-alert-button {
+    background: rgb(216, 11, 11);
+}
+
+.control-panel-alert-button:hover {
+    background: rgb(200, 0, 0);
+}
+
+.control-panel-resend-verify {
+    background: rgb(255, 123, 0);
+}
+
+.control-panel-resend-verify:hover {
+    background: rgb(223, 108, 0);
+}
+
+#current-email {
+    margin: 0;
+    margin-bottom: 10px;
+}
+
+#hidden-update-name, #hidden-update-email {
+    display: none;
+    background: var(--darkerGrey);
+    padding: 1rem 0;
+}
+
+.hidden-update-email-input {
+    display: flex;
+    flex-direction: column;
+    font-size: .7rem;
+    width: 45%;
+}
+
+#hidden-update-name input, #hidden-update-email input {
+    width: 100%;
+    border: none;
+    border-radius: 2rem;
+    outline: none;
+    padding: 2px 10px;
+    box-sizing: border-box;
+}
+
+#hidden-update-name input {
+    width: 45%;
+}
+
+.c-panel-error-msg p, .auth-error-msg p {
+    width: 70%;
+    text-align: center;
+    margin: 0 auto;
+}
+
+.auth-error-msg {
+    width: 80%;
+    margin-top: 10px;
+}
+
+.authentication-container {
+    display: flex; 
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#auth-cross {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+} 
+
+.user-auth-header h1 {
+    font-size: 1.8rem;
+}
+
+.user-auth {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: .9rem;
+    text-align: center;
+    user-select: none;
+}
+
+#user-signup {
+    display: none;
+}
+
+.email-container, .password-container{
+    width: 100%;
+}
+
+.password-container {
+    position: relative;
+}
+
+.email, .password {
+    width: 100%;
+    height: 30px;
+    border-radius: 2rem;
+    outline: none;
+    border: solid .2rem var(--green);
+    font-family: "poppins", sans-serif;
+    font-size: 1rem;
+    padding: 20px 10px;
+    box-sizing: border-box;
+}
+
+
+#log-password-toggle, #reg-password-toggle {
+    position: absolute;
+    top: 50%;
+    right: 1rem;
+    transform: translateY(-50%);
+    cursor: pointer;
+    z-index: 99;
+}
+
+.fa-eye {
+    margin-right: .91px;
+}
+
+.send-auth-container-log, .send-auth-container-reg, .send-auth-container-forgot { 
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+    text-align: center;
+}
+
+.auth-button {
+    visibility: hidden;
+    margin: auto;
+    width: 0;
+    padding: 0;
+    transition: .3s;
+    margin-top: -45px;
+    margin-bottom: 30px;
+    z-index: -1;
+    font-size: 0;
+    border-radius: 2rem;
+}
+
+.otherwise, .forgot-password, .hide-forgot {
+    font-size: .9rem;
+    margin: .3rem;
+    cursor: pointer;
+}
+
+.forgot-container {
+    width: 80%;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: .9rem;
+}
+
+.forgot-header h1 {
+    text-align: center;
+    font-size: 1.8rem;
+}
+
+.forgot-content {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: .9rem;
+}
+
+.error-msg p {
+    width: 80%;
+    text-align: center;
+    margin: 0 auto;
+}
+
+.hidden {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+#qr-code-span {
+    margin-top: 10px;
+    font-size: 18px;
+}
+
+#qr-code-image {
+    width: 70%;
+    margin: 10px auto;
+}
+
+#loader {
+    width: 20%;
+    height: 20%;
+    margin: 80px auto;
+}
+
+#new-qr {
+    margin-top: 20px;
+    padding: .8rem 1.5rem;
+    box-sizing: border-box;
+    border-radius: 2rem;
+}
+
+

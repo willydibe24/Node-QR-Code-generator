@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/ecd4dc4bb7.js" crossorigin="anonymous"></script>
+    <link rel = "stylesheet" href = "style.css">
+    <script src="src/main.js" type = "module"></script>
+    <title>QR-Code-Generator</title>
+</head>
+<body>
+    <div class="authentication">
+        <div class="authentication-container">
+            <label class="fa-solid fa-xmark" id = "auth-cross"></label>
+            <div class="user-auth" id = "user-signin">
+                <div class="user-auth-header">
+                    <h1>Accedi</h1>
+                </div>
+                <div class="email-container">
+                    <input type = "email" id = "log-email" class = "email" placeholder="Email">
+                </div>
+                <div class="password-container">
+                    <input type = "password" id = "log-password" class = "password" placeholder="Password">
+                    <i class = "fa-regular fa-eye-slash" id = "log-password-toggle"></i>
+                </div>
+                <div class="send-auth-container-log">
+                    <button class = "auth-button" id = "signin-button">Accedi</button> 
+                    <label class = "forgot-password" id = "forgot-password"><u>Password dimenticata?</u></label>
+                    <label class = "otherwise" id = "otherwise-signup"><u>Altrimenti registrati</u></label>
+                </div>
+            </div>
+            <div class="user-auth" id = "user-signup">
+                <div class="user-auth-header">
+                    <h1>Registrati</h1>
+                </div>
+                <div class="email-container">
+                    <input type = "email" id = "reg-email" class = "email" placeholder="Email">
+                </div>
+                <div class="password-container">
+                    <input type = "password" id = "reg-password" class = "password" placeholder="Password">
+                    <i class = "fa-regular fa-eye-slash" id = "reg-password-toggle"></i>
+                </div>
+                <div class="confirm-password-container">
+                    <input type = "password" id = "reg-password-validate" class = "password" placeholder="Conferma password">
+                </div>
+                <div class="send-auth-container-reg">
+                    <button class = "auth-button" id = "signup-button">Registrati</button> 
+                    <label class = "otherwise" id = "otherwise-signin"><u>Altrimenti accedi</u></label>
+                </div>
+            </div>
+            <div class="forgot-container">
+                <div class="forgot-header">
+                    <h1>Ripristina la tua password</h1>
+                </div>
+                <div class="forgot-content">
+                    <input type = "email" id = "forgot-email" class = "email" placeholder="Inserisci la tua email">
+                    <div class="send-auth-container-forgot">
+                        <button class = "auth-button" id = "forgot-button">Ripristina password</button> 
+                        <label class = "hide-forgot" id = "hide-forgot"><u>Annulla</u></label>
+                    </div>
+                </div>
+            </div>
+            <div class="auth-error-msg"></div>
+        </div>
+        </div>
+        <div class="control-panel">
+        <div class="control-panel-container">
+            <div class="control-panel-header">
+                <h1>Pannello di controllo</h1>
+                <label class="fa-solid fa-xmark" id = "user-cross"></label>
+            </div>
+            <div class="c-panel-error-msg"></div>
+            <div class="control-panel-content">
+                <div class = "control-panel-row" id = "resend-verify-container">
+                    <span>Invia una nuova email di verifica per il tuo account.</span>
+                    <button class = "control-panel-resend-verify" id = "send-verify-email">Reinvia email di verifica</button>
+                </div>
+                <div class = "control-panel-row" id = "update-name-container">
+                    <span>Consente di modificare il tuo username.</span>
+                    <button class = "control-panel-trigger-button" id = "trigger-update-name">Modifica username</button>
+                </div>
+                <div class = "control-panel-row" id = "hidden-update-name">
+                    <input type="text" id="update-name" placeholder="Nuovo username">
+                    <button class = "control-panel-trigger-button" id = "send-update-name">Conferma modifica</button>
+                </div>
+                <div class = "control-panel-row" id = "update-email-container">
+                    <span>Consente di modificare la tua email.</span>
+                    <button class = "control-panel-trigger-button" id = "trigger-update-email">Modifica email</button>
+                </div>
+                <div class = "control-panel-row" id = "hidden-update-email">
+                    <div class="hidden-update-email-input">
+                        <p id = "current-email"></p>
+                        <input type="text" id="update-email" placeholder="Nuova email">
+                    </div>
+                    <button class = "control-panel-trigger-button" id = "send-update-email">Conferma modifica</button>
+                </div>
+                <div class = "control-panel-row" id = "reset-password-container">
+                    <span>Ricevi un'email contenente un link per effettuare il ripristino della password.</span>
+                    <button class = "control-panel-trigger-button" id = "reset-password">Ripristina password</button>
+                </div>
+                <div class = "control-panel-row" id = "logout-container">
+                    <span>Effettua il logout dal tuo account.</span>
+                    <button class = "control-panel-alert-button" id = "user-logout-button">Logout</button>
+                </div>
+                <div class = "control-panel-row" id = "delete-user-container">
+                    <span>Elimina definitivamente il tuo account.</span>
+                    <button class = "control-panel-alert-button" id = "delete-account">Elimina account</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <main>
+    <section>
+        <div class="container" id = "container">
+            <div class="user-icon-container">
+                <i class="fa-regular fa-user" id = "user-icon"></i>
+            </div>
+            <div class="content" id = "content">
+                <header>
+                    <h1>Generatore QR-Code</h1>
+                </header>
+                <div class="text-input">
+                    <span id = "qr-code-span">Inserisci l'url da convertire</span>
+                    <input type = "text" id = "text"> 
+                </div>
+                <div class="file-input">
+                    <span id = "qr-code-span">Oppure</span>
+                    <input type = "file" id = "file"> 
+                </div>
+                <button id = "generate">Genera QR-Code</button>
+                <div class="error-msg"></div>
+            </div>
+            <div class="hidden">
+                <img src = "/qr-code.png" alt = "qr-code" id = "qr-code-image">
+                <img src = "/loading_icon.gif" alt = "loader" id = "loader">
+                <button id = "new-qr">Genera un altro QR Code</button>
+            </div>
+        </div>
+    </section>
+    </main>
+</body>
+</html>
